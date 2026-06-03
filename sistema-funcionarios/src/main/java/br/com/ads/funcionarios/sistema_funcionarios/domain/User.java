@@ -14,7 +14,8 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "usuarios")
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -41,5 +42,21 @@ public class User {
     @Column(nullable = false)
     @NotNull
     private BigDecimal salario;
+
+
+    public void alteraDados
+            (
+                    String nome,
+                    String email,
+                    String senha,
+                    String cargo,
+                    BigDecimal salario) {
+
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.cargo = cargo;
+        this.salario = salario;
+    }
 
 }

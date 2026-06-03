@@ -11,7 +11,6 @@ import java.util.List;
 public interface UserRepository  extends JpaRepository<User, Long> {
 
 
-    // Lista todods os Users
+    // Lista todos os Users
     List<User> findByid(Long id);
-
 }

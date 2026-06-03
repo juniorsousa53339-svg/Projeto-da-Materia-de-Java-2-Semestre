@@ -1,11 +1,12 @@
 package br.com.ads.funcionarios.sistema_funcionarios.controller;
 
 
-import br.com.ads.funcionarios.sistema_funcionarios.dto.UserListResponse;
+import br.com.ads.funcionarios.sistema_funcionarios.domain.User;
+import br.com.ads.funcionarios.sistema_funcionarios.repository.UserRepository;
 import br.com.ads.funcionarios.sistema_funcionarios.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,17 +15,36 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final UserRepository userRepository;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService,
+                          UserRepository userRepository) {
         this.userService = userService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping
-    public List<UserListResponse> listaUsers(){
+    public List<User> listUsers() {
+        return userService.listUsers();
+    }
 
-        return userService.listaUsers()
-                .stream()
-                .map(UserListResponse::fromEntity)
-                .toList();
+    @PostMapping
+    public User save(@RequestBody @Valid User user) {
+        return userService.saveUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void>update(@PathVariable Long id ,@RequestBody @Valid User user) {
+
+        userService.update
+                (
+                id,
+                user.getNome(),
+                user.getEmail(),
+                user.getSenha(),
+                user.getCargo(),
+                user.getSalario()
+                );
+        return ResponseEntity.noContent().build();
     }
 }
