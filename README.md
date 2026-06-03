@@ -147,7 +147,7 @@ GET /perfil
 | email | String  |
 | senha | String  |
 | cargo | String  |
-| ativo | Boolean |
+| salario | BigDecimal |
 
 ---
 
@@ -155,7 +155,6 @@ GET /perfil
 
 ```text
 main
-develop
 backend
 frontend
 ```
