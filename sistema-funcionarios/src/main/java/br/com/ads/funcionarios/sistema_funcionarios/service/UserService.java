@@ -39,4 +39,9 @@ public class UserService {
         user.alteraDados(nome, email, senha, cargo, salario);
         return userRepository.save(user);
     }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
 }
