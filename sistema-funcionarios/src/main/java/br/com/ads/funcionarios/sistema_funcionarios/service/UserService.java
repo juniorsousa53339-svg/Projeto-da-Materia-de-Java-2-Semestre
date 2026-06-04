@@ -44,4 +44,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+
 }
