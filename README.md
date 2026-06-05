@@ -174,7 +174,7 @@ frontend
 * Rafael
 * Michel
 * Laura
-
+* Leonardo
 ---
 
 ## Objetivos do Projeto
