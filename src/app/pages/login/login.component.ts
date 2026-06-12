@@ -34,20 +34,13 @@ import { AuthService } from '../../services/auth.service';
 
           <button mat-flat-button color="primary" class="full-width" [disabled]="form.invalid">Entrar</button>
         </form>
-
-        <div class="hint">
-          <p><strong>Admin:</strong> admin@empresa.com / 123456</p>
-          <p><strong>Funcionário:</strong> funcionario@empresa.com / 123456</p>
-        </div>
-      </mat-card>
-    </div>
   `,
   styles: [
     `.login-page { min-height: 100vh; display: grid; place-items: center; background: linear-gradient(135deg, #eff6ff, #f8fafc); padding: 20px; }`,
     `.login-card { width: min(100%, 430px); padding: 8px 4px 20px; }`,
     `.login-header { text-align: center; margin-bottom: 16px; }`,
     `.full-width { width: 100%; margin-bottom: 8px; }`,
-    `.hint { margin-top: 16px; color: #475569; font-size: 0.95rem; }`
+    
   ]
 })
 export class LoginComponent {
