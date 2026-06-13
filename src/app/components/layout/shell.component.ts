@@ -25,6 +25,16 @@ import { AuthService } from '../../services/auth.service';
             </div>
           </div>
 
+          <div class="user-card">
+            <div class="avatar">{{ currentUser()?.avatar }}</div>
+            <div>
+              <strong>{{ currentUser()?.nome }}</strong>
+              <p>{{ currentUser()?.role }}</p>
+            </div>
+          </div>
+
+          <mat-divider></mat-divider>
+
           <mat-nav-list>
             <a mat-list-item routerLink="/dashboard" *ngIf="isAdmin()">
               <mat-icon matListItemIcon>dashboard</mat-icon>
@@ -51,16 +61,6 @@ import { AuthService } from '../../services/auth.service';
               <span matListItemTitle>Ativos</span>
             </a>
           </mat-nav-list>
-
-          <mat-divider></mat-divider>
-
-          <div class="user-card">
-            <div class="avatar">{{ currentUser()?.avatar }}</div>
-            <div>
-              <strong>{{ currentUser()?.nome }}</strong>
-              <p>{{ currentUser()?.role }}</p>
-            </div>
-          </div>
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -81,13 +81,19 @@ import { AuthService } from '../../services/auth.service';
     `:host { display: block; height: 100%; }`,
     `.app-shell { height: 100%; }`,
     `.sidenav-container { height: 100%; }`,
-    `.sidenav { width: 270px; background: #0f172a; color: white; }`,
+    `.sidenav { width: 270px; background: #0f172a; color: white; display: flex; flex-direction: column; }`,
     `.brand { display: flex; gap: 12px; padding: 24px 16px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); }`,
     `.brand-badge { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(135deg, #2563eb, #7c3aed); font-weight: 700; }`,
     `.brand h2 { margin: 0; font-size: 1rem; }`,
     `.brand p { margin: 2px 0 0; color: rgba(255,255,255,0.7); font-size: 0.875rem; }`,
-    `.user-card { display: flex; gap: 12px; align-items: center; padding: 16px; margin-top: 12px; }`,
-    `.avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.12); font-weight: 700; }`,
+    `.user-card { display: flex; gap: 12px; align-items: center; padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }`,
+    `.user-card strong { color: white; }`,
+    `.user-card p { color: rgba(255,255,255,0.7); }`,
+    `.avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,0.12); font-weight: 700; color: white; }`,
+    `mat-nav-list { flex: 1; overflow-y: auto; }`,
+    `a[mat-list-item] { color: white !important; }`,
+    `a[mat-list-item] mat-icon { color: white !important; }`,
+    `a[mat-list-item] span { color: white !important; }`,
     `.topbar { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }`,
     `.spacer { flex: 1; }`,
     `.page-content { padding: 24px; background: #f8fafc; min-height: calc(100vh - 64px); }`
